@@ -2,11 +2,12 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { FormsModule } from '@angular/forms';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent,FlightSearchComponent],
-      imports: [HttpClientModule]
+      declarations: [AppComponent, FlightSearchComponent],
+      imports: [HttpClientModule, FormsModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Flight } from '../entities/flight';
+import { HttpClientTestingBackend } from '@angular/common/http/testing/src/backend';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 
@@ -20,7 +21,7 @@ export class FlightSearchComponent implements OnInit {
 
   }
   search(): void {
-
+    console.info("Suche gestartet....");
     let url = 'http://www.angular.at/api/flight';
 
     let params = new HttpParams()
@@ -31,11 +32,17 @@ export class FlightSearchComponent implements OnInit {
       .set('Accept', 'application/json');
 
     this.httpClient.get<Flight[]>(url, { params, headers }).subscribe(
-      (flights) => { this.flights = flights; },
-      (err) => { console.error('Error loading flights', err); }
+      (flights) => {
+        console.info("Daten erhalten!!!");
+        console.info(flights.length);
+        this.flights = flights;
+      },
+      (err) => {
+        console.error('Error loading flights', err);
+      }
     );
   }
-  
+
   ngOnInit() {
   }
 

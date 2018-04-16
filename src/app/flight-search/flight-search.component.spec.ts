@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FlightSearchComponent } from './flight-search.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 describe('FlightSearchComponent', () => {
   let component: FlightSearchComponent;
@@ -9,7 +10,7 @@ describe('FlightSearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [FlightSearchComponent],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule, FormsModule]
     })
       .compileComponents();
   }));
@@ -23,4 +24,12 @@ describe('FlightSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should get min. one Result',()=>{
+  //   // component.from = "Hamburg";
+  //   // component.to = "Graz";
+  //   component.search();
+    
+  //   expect(component.flights.length) .toBeGreaterThan(0)
+  // });
 });
