@@ -47,7 +47,12 @@ export class FlightSearchComponent implements OnInit {
   }
 
   select(f: Flight) {
-    this.selectedFlight = f;
+    this.basket[f.id] = true;
   }
 
+  unselect(f: Flight) {
+    this.basket[f.id] = false;
+  }
+
+  basket: Map<number, boolean> = new Map<number,boolean>();
 }

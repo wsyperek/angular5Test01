@@ -1,0 +1,9 @@
+<div class="col-sm-12 col-md-4" col-lg-3>
+    <div class="jumbotron">
+        <h1>{{item.from}} - {{item.to}}</h1>
+        <p>ID: {{item.id}}</p>
+        <p>Date: {{item.date}}</p>
+        <p ng-if="item.selected"><a class="btn btn-primary btn-lg" (click)="unselect()" role="button">Selected</a></p>
+        <p ng-if="!item.selected"><a class="btn btn-primary btn-lg" (click)="select()" role="button">Unselected</a></p>
+    </div>
+</div>

@@ -25,6 +25,7 @@ describe('FlightSearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  
   // it('should get min. one Result',()=>{
   //   // component.from = "Hamburg";
   //   // component.to = "Graz";
