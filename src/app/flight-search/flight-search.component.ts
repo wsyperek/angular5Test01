@@ -17,7 +17,9 @@ export class FlightSearchComponent implements OnInit {
   selectedFlight: Flight;
 
   constructor(private httpClient: HttpClient) {
-
+    // for (let i1: number = 0; i1 < 10; i1++) {
+    //   this.basket[i1] = true;
+    // }
 
   }
   search(): void {
@@ -54,5 +56,10 @@ export class FlightSearchComponent implements OnInit {
     this.basket[f.id] = false;
   }
 
-  basket: Map<number, boolean> = new Map<number,boolean>();
+  debugTest(id: number, event: any) {
+    console.debug("Hallo debugTest", id, event);
+    this.basket[id] = event;
+  }
+
+  basket: Map<number, boolean> = new Map<number, boolean>();
 }

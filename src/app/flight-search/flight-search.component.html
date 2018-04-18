@@ -21,11 +21,12 @@
 
 <!-- </table> -->
 <div class="container-fluid">
-  <div *ngFor="let f of flights">
-    <flight-card [item]="f" [(selected)]="basket[f.id]"></flight-card>
+  <div class="row">
+    <div *ngFor="let f of flights">
+      <flight-card [item]="f" [(selected)]="basket[f.id]"></flight-card>
+    </div>
   </div>
 </div>
-
 <pre>Warenkorb
   -----------------------------
   {{ basket | json }}
