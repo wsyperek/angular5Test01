@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Flight } from '../entities/flight';
 import { HttpClientTestingBackend } from '@angular/common/http/testing/src/backend';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { FlightSearchService } from '../services/flight-search.service';
 
 
 @Component({
@@ -16,27 +17,17 @@ export class FlightSearchComponent implements OnInit {
   flights: Array<Flight> = [];
   selectedFlight: Flight;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private flightService: FlightSearchService) {
     // for (let i1: number = 0; i1 < 10; i1++) {
     //   this.basket[i1] = true;
     // }
 
   }
   search(): void {
-    console.info("Suche gestartet....");
-    let url = 'http://www.angular.at/api/flight';
-
-    let params = new HttpParams()
-      .set('from', this.from)
-      .set('to', this.to);
-
-    let headers = new HttpHeaders()
-      .set('Accept', 'application/json');
-
-    this.httpClient.get<Flight[]>(url, { params, headers }).subscribe(
+    this.flightService.find(this.from, this.to).subscribe(
       (flights) => {
-        console.info("Daten erhalten!!!");
-        console.info(flights.length);
+        // console.info("Daten erhalten!!!");
+        // console.info(flights.length);
         this.flights = flights;
       },
       (err) => {
@@ -56,10 +47,7 @@ export class FlightSearchComponent implements OnInit {
     this.basket[f.id] = false;
   }
 
-  debugTest(id: number, event: any) {
-    console.debug("Hallo debugTest", id, event);
-    this.basket[id] = event;
-  }
-
   basket: Map<number, boolean> = new Map<number, boolean>();
+
+  public date: string = (new Date().toISOString());
 }

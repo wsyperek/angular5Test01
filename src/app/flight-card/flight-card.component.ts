@@ -8,18 +8,31 @@ import { Flight } from '../entities/flight';
 })
 export class FlightCardComponent implements OnInit {
 
-  constructor() { }
+  constructor() { console.debug('Constructor ', this.item); }
 
   @Input() item: Flight;
   @Input() selected: boolean;
   @Output() selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   ngOnInit() {
+    console.debug('ngOnInit', this.item);
+  }
+
+  ngOnChanges(changes) {
+    console.debug('ngOnChanges', this.item);
+
+    if (changes.item) {
+      console.debug('ngOnChanges: item');
+    }
+
+    if (changes.selected) {
+      console.debug('ngOnChanges: selected');
+    }
   }
 
   select() {
-    console.debug("Select() hit")
-    
+    // console.debug("Select() hit")
+
     this.selected = !this.selected;
     this.selectedChange.emit(this.selected);
   }

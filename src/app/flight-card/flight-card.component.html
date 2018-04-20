@@ -1,10 +1,17 @@
-<div class="card col-sm-12" style="background-color: lightgray">
-    <div class="card-body" [ngStyle]="{'background-color': (selected) ? 'orange' : 'lightsteelblue'}" >
-        <h1>{{item.from}} - {{item.to}}</h1>
-        <p>ID: {{item.id}}</p>
-        <p>Date: {{item.date | date:'dd.MM.yyyy HH:mm'}}</p>
-        Selected: {{selected}}
-        <p *ngIf="!selected"><a class="btn btn-primary btn-lg" (click)="select()" role="button">Selected</a></p>
-        <p *ngIf="selected"><a class="btn btn-primary btn-lg" (click)="select()" role="button">Unselected</a></p>
+<div class="card col-sm-12" style="background-color:  darkorange">
+    <div class="card-body" [ngStyle]="{'background-color': (selected) ? 'orange' : 'lightsteelblue'}">
+        <h1 class="card-header">{{item.from | flightCity:'short'}} - {{item.to | flightCity}}</h1>
+        <div class="card-body">
+            <p>Von:  {{item.from | flightCity:'long'}}</p>
+            <p>Nach: {{item.to | flightCity:'long'}}</p>
+            <p>ID:   {{item.id}}</p>
+            <p>Date: {{item.date | date:'dd.MM.yyyy HH:mm'}}</p>
+        </div>
+        <p *ngIf="!selected">
+            <a class="btn btn-outline-primary btn-lg" (click)="select()" role="button">Selected</a>
+        </p>
+        <p *ngIf="selected">
+            <a class="btn btn-outline-primary btn-lg" (click)="select()" role="button">Unselected</a>
+        </p>
     </div>
 </div>
