@@ -10,17 +10,25 @@ import { DateComponentComponent } from './date-component/date-component.componen
 import { FlightBookingModule } from './flight-booking/flight-booking.module';
 import { FlightCityPipe } from './flight-city.pipe';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
+import { PassengerComponent } from './passenger/passenger.component';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FlightBookingModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forRoot(APP_ROUTES
+      // , { enableTracing: true }
+    )
   ],
   providers: [
 

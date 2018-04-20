@@ -6,23 +6,29 @@ import { FlightSearchComponent } from '../flight-search/flight-search.component'
 import { FlightCardComponent } from '../flight-card/flight-card.component';
 import { DateComponentComponent } from '../date-component/date-component.component';
 import { FlightSearchService } from '../services/flight-search.service';
+import { FlightBookingRoutesModule } from './flight-booking-router-module';
+import { PassengerComponent } from '../passenger/passenger.component';
+import { FlightBookingComponent } from './flight-booking.component';
 
 @NgModule({
   imports: [
     FormsModule,
     SharedModule,
-    CommonModule
+    CommonModule,
+    FlightBookingRoutesModule
   ],
   declarations: [
     FlightSearchComponent,
     FlightCardComponent,
-    DateComponentComponent
+    DateComponentComponent,
+    PassengerComponent,
+    FlightBookingComponent
   ],
   providers:[
     FlightSearchService
   ],
   exports:[
-    FlightSearchComponent
+    // FlightSearchComponent
   ]
 })
 export class FlightBookingModule { }
