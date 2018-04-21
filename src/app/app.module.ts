@@ -12,24 +12,25 @@ import { FlightCityPipe } from './flight-city.pipe';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { PassengerComponent } from './passenger/passenger.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
-import { FlightEditComponent } from './flight-edit/flight-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FlightEditComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FlightBookingModule,
+    // FlightBookingModule,
     SharedModule,
     RouterModule.forRoot(APP_ROUTES
-      // , { enableTracing: true }
+      , {
+        // enableTracing: true ,
+        preloadingStrategy: PreloadAllModules
+      }
     )
   ],
   providers: [

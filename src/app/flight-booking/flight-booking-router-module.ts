@@ -6,7 +6,7 @@ import { FlightEditComponent } from "../flight-edit/flight-edit.component";
 
 const FLIGHT_BOOKING_ROUTES: Routes = [
     {
-        path: 'flight-booking',
+        path: '',
         component: FlightBookingComponent,
         children: [
             {

@@ -21,9 +21,13 @@ export const APP_ROUTES: Routes = [
     //     path: 'app-passenger',
     //     component: PassengerComponent
     // },
+    // {
+    //     path: "**",
+    //     component: HomeComponent
+    // }
     {
-        path: "**",
-        component: HomeComponent
+        path: 'flight-booking',
+        loadChildren: './flight-booking/flight-booking.module#FlightBookingModule'
     }
 
 ];

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightBookingComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.debug('ctor FlightBookingComponent');
+   }
 
   ngOnInit() {
   }
