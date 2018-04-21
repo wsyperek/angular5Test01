@@ -25,7 +25,7 @@ import { APP_ROUTES } from './app.routes';
     BrowserModule,
     HttpClientModule,
     // FlightBookingModule,
-    SharedModule,
+    SharedModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES
       , {
         // enableTracing: true ,

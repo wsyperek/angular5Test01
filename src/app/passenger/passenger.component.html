@@ -1,3 +1,11 @@
-<p>
-  passenger works!
-</p>
+<h1>Passagier suchen</h1>
+
+<div class="form-group">
+  <label for="name">Name</label>
+  <input type="text" class="form-control" [(ngModel)]="name" aria-describedby="helpId" placeholder="Name des Passagiers">
+  <small id="helpId" class="form-text text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <button type="button" class="btn btn-primary" (click)="search()">Suchen</button>
+
+</div>

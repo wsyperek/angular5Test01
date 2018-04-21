@@ -1,7 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlightCityPipe } from '../flight-city.pipe';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth-service';
+import { SimpleAuthService } from '../services/simple-auth-service';
 
 @NgModule({
   imports: [
@@ -11,10 +13,22 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     FlightCityPipe,
   ],
-  exports:[
+  exports: [
     FlightCityPipe,
     CommonModule,
     FormsModule
+  ],
+  providers: [
+    // { provide: AuthService, useClass: SimpleAuthService }
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      providers: [
+        { provide: AuthService, useClass: SimpleAuthService }
+      ],
+      ngModule: SharedModule
+    };
+  }
+}
