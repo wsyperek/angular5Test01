@@ -14,12 +14,14 @@ import { HomeComponent } from './home/home.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
+import { FlightEditComponent } from './flight-edit/flight-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    FlightEditComponent
   ],
   imports: [
     BrowserModule,

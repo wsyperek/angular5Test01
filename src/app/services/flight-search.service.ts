@@ -6,10 +6,20 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class FlightSearchService {
 
-  constructor(private httpClient: HttpClient) { }
+  findById(id: string): Observable<Flight> {
+    let params = new HttpParams().set('id', id);
+
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.httpClient.get<Flight>(this.url, { headers, params });
+  }
+
+  url: string;
+  constructor(private httpClient: HttpClient) {
+    this.url = 'http://www.angular.at/api/flight';
+  }
   find(from: string, to: string): Observable<Flight[]> {
     console.info("Suche gestartet....");
-    let url = 'http://www.angular.at/api/flight';
+
 
     let params = new HttpParams()
       .set('from', from)
@@ -20,6 +30,6 @@ export class FlightSearchService {
 
     return this
       .httpClient
-      .get<Flight[]>(url, { headers, params });
+      .get<Flight[]>(this.url, { headers, params });
   }
 }

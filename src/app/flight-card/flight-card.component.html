@@ -2,11 +2,12 @@
     <div class="card-body" [ngStyle]="{'background-color': (selected) ? 'orange' : 'lightsteelblue'}">
         <h1 class="card-header">{{item.from | flightCity:'short'}} - {{item.to | flightCity}}</h1>
         <div class="card-body">
-            <p>Von:  {{item.from | flightCity:'long'}}</p>
+            <p>Von: {{item.from | flightCity:'long'}}</p>
             <p>Nach: {{item.to | flightCity:'long'}}</p>
-            <p>ID:   {{item.id}}</p>
+            <p>ID: {{item.id}}</p>
             <p>Date: {{item.date | date:'dd.MM.yyyy HH:mm'}}</p>
         </div>
+        <a class="btn btn-outline-primary btn-lg" [routerLink]="['../flight-edit',item.id]">Editieren</a>
         <p *ngIf="!selected">
             <a class="btn btn-outline-primary btn-lg" (click)="select()" role="button">Selected</a>
         </p>

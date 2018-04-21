@@ -1,3 +1,4 @@
+<h1>Flug suchen</h1>
 <div class="form-group">
   <label>From: {{from}} - {{to}}</label>
   <input [(ngModel)]="from" class="form-control">
@@ -9,17 +10,6 @@
 <div class="form-group">
   <button class="btn btn-default" (click)="search()" [disabled]="!from || !to">Suchen</button>
 </div>
-
-<!-- <table class="table table-striped"> -->
-<!-- <tr *ngFor="let flight of flights" [ngClass]="{'table-success': flight === selectedFlight }">
-    <td>{{flight.id}}</td>
-    <td>{{flight.from}}</td>
-    <td>{{flight.to}}</td>
-    <td>{{flight.date | date:'dd.MM.yyyy HH:mm'}}</td>
-    <td><a (click)="select(flight)">Select</a></td>
-  </tr> -->
-
-<!-- </table> -->
 <div class="container-fluid">
   <div class="row">
     <div *ngFor="let f of flights">
