@@ -1,29 +1,27 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'flightCity'
+  name: "flightCity"
 })
 export class FlightCityPipe implements PipeTransform {
-
   transform(value: any, args?: any): any {
     let short, long;
 
     switch (value) {
-      case 'Graz':
-        short = 'GRZ';
-        long = 'Flughafen Graz Thalerhof';
+      case "Graz":
+        short = "GRZ";
+        long = "Flughafen Graz Thalerhof";
         break;
-      case 'Hamburg':
-        short = 'HAM';
-        long = 'Aiport Hamburg Fulsbüttel Helmut Schmidt';
+      case "Hamburg":
+        short = "HAM";
+        long = "Aiport Hamburg Fulsbüttel Helmut Schmidt";
         break;
       default:
-        short = long = 'Rom';
+        short = long = "Rom";
     }
-    if(args == 'long'){
+    if (args == "long") {
       return long;
     }
     return short;
   }
-
 }
